@@ -6,10 +6,16 @@ import zipfile
 import sqlite3
 import ArgMap
 
+# This is an installation requirement
+import PyPDF2
+
+
+
+
 class HelloWorldTool:
     def run_op(self, argmap):
-
         print("hello, world")
+
 
 
 def lookup_tool(probe):

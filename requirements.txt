@@ -1,0 +1,2 @@
+# Convert Tasneef and other PDFS to text format, to facilitate sending them to GPT
+PyPDF2
