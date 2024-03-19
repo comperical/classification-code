@@ -8,12 +8,34 @@ import ArgMap
 
 # This is an installation requirement
 import PyPDF2
+import utility as U
 
 
+class ConvertBasicTool:
+    def run_op(self, argmap):
+
+
+        print(f"The folder base is {U.PROJECT_DATA_PATH}")
+        print(f"The PDF base is {U.PDF_DOC_PATH}")
+
+        codename = argmap.getStr("codename")
+        longpath = U.get_pdf_doc_path(codename)
+        print(f"Going to convert file {codename}, path {longpath}, to text")
+
+        pagelist = U.get_pdf_text_pages(codename=codename)
+        print(f"Got {len(pagelist)} pages from the PDF")
+
+        textpath = U.get_text_form_path(codename)
+        with open(textpath, 'w') as fh:
+            for page in pagelist:
+                fh.write(page)
+                fh.write("\n")
+
+        print(f"Wrote {len(pagelist)} pages for code name {codename} to {textpath}")
 
 
 class HelloWorldTool:
-    def run_op(self, argmap):
+    def run_op(self, _):
         print("hello, world")
 
 
